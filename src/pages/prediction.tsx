@@ -58,7 +58,7 @@ const RealEstateForm = () => {
       };
 
       // Make API call to your FastAPI backend
-      const response = await fetch("http://localhost:8000/predict", { // Update with your actual endpoint
+      const response = await fetch("https://real-estate-lako.onrender.com/predict", { // Update with your actual endpoint
         method: "POST",
         headers: {
           "Content-Type": "application/json",
