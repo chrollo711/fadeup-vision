@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroImage from "@/assets/hero-home.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const fadeUpVariants = {
@@ -42,13 +43,9 @@ const Hero = () => {
             HORIZON
           </div>
           <div className="hidden items-center gap-8 font-body text-sm tracking-wide text-foreground/80 md:flex">
-            <a href="#" className="transition-colors hover:text-primary">Properties</a>
+            <Link to="/prediction" className="transition-colors hover:text-primary">Properties</Link>
             <a href="#" className="transition-colors hover:text-primary">About</a>
-            <a href="#" className="transition-colors hover:text-primary">Contact</a>
           </div>
-          <button className="rounded-full border border-foreground/20 px-6 py-2 font-body text-sm text-foreground transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground">
-            Get Started
-          </button>
         </motion.nav>
 
         {/* Main Typography */}
@@ -66,7 +63,7 @@ const Hero = () => {
             </motion.h1>
 
             {/* Spacer for image visibility */}
-            <div className="w-[15vw] md:w-[18vw]" />
+            <div className="w-[1vw] md:w-[8vw]" />
 
             {/* Right text */}
             <motion.h1
@@ -76,7 +73,7 @@ const Hero = () => {
               variants={fadeUpVariants}
               className="font-display text-[12vw] font-normal leading-none tracking-tight text-foreground md:text-[10vw] lg:text-[9vw]"
             >
-              XSTATE
+            XSTATE
             </motion.h1>
           </div>
         </div>
@@ -111,7 +108,7 @@ const Hero = () => {
               ENDLESS
             </div>
             <div className="font-display text-4xl leading-tight tracking-wider text-foreground md:text-5xl lg:text-6xl">
-              DISCOVERY
+              DISCOVERIES
             </div>
           </motion.div>
         </div>
