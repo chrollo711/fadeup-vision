@@ -17,7 +17,8 @@ interface PropertyData {
 
 interface PredictionResponse {
   prediction: number;
-  confidence?: number;
+  is_good_investment: boolean;
+  investment_label: string;
   currency?: string;
   formatted_prediction?: string; // Add this to the interface
 }
@@ -58,7 +59,7 @@ const RealEstateForm = () => {
       };
 
       // Make API call to your FastAPI backend
-      const response = await fetch("https://real-estate-lako.onrender.com/predict", { // Update with your actual endpoint
+      const response = await fetch("https://real-estate-naot.onrender.com/predict", { // Update with your actual endpoint
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -243,20 +244,13 @@ const RealEstateForm = () => {
                       </div>
                     </div>
                     
-                    {prediction.confidence && (
-                      <div className="text-center">
-                        <p className="text-sm text-muted-foreground">Confidence Level</p>
-                        <div className="flex items-center gap-2 mt-1">
-                          <div className="w-32 bg-muted rounded-full h-2">
-                            <div 
-                              className="bg-green-500 h-2 rounded-full" 
-                              style={{ width: `${Math.min(prediction.confidence, 100)}%` }}
-                            />
-                          </div>
-                          <span className="font-semibold text-foreground">
-                            {prediction.confidence.toFixed(1)}%
-                          </span>
-                        </div>
+                    {prediction && (
+                      <div className="mb-6 text-center">
+                        <p className={`text-lg font-semibold ${
+                          prediction.is_good_investment ? "text-green-500" : "text-red-500"
+                        }`}>
+                          {prediction.investment_label}
+                        </p>
                       </div>
                     )}
                   </div>
